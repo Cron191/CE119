@@ -13,7 +13,7 @@
 	
 .text
 	# for (int i=0;i<size1;i++)
-	# cin>>array1[i];
+	# cout>>array1[i];
 	la $s0,array1
 	la $t0, size1
 	lw $t1, 0($t0)
@@ -30,7 +30,7 @@
 		j FOR
 	EXIT:
 	# for (int i=0;i<size2;i++)
-	# cin>>array2[i];
+	# cout>>array2[i];
 	la $s1, array2
 	la $t0, size2
 	lw $t1, 0($t0)
