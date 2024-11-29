@@ -13,8 +13,8 @@
 	
 .text
 	# for (int i=0;i<size1;i++)
-	# cout>>array1[i];
-	la $s0,array1
+	# cin>>array1[i];
+	la $s0, array1
 	la $t0, size1
 	lw $t1, 0($t0)
 	addi $t0, $zero, 0
@@ -30,7 +30,7 @@
 		j FOR
 	EXIT:
 	# for (int i=0;i<size2;i++)
-	# cout>>array2[i];
+	# cin>>array2[i];
 	la $s1, array2
 	la $t0, size2
 	lw $t1, 0($t0)
@@ -47,27 +47,27 @@
 	EXIT2:
 	#for(int i=0;i<size3;i++)
 	#array3[i] = array2[i] + array2[size2 - 1 - i]
-	li $t0, 0          #$t0=i=0   
-    	la $s2, array2     #$s2=array2  
-    	la $s3, array3     #$s3=array3   
-    	li $t1, 15         #$t1=size2-1=16-1=15  
-    	la $t2, size3
-    	lw $t2, 0($t2)	   #St2=size3=8
+		li $t0, 0          #$t0=i=0   
+    		la $s2, array2     #$s2=array2  
+    		la $s3, array3     #$s3=array3   
+    		li $t1, 15         #$t1=size2-1=16-1=15  
+    		la $t2, size3
+    		lw $t2, 0($t2)	   #St2=size3=8
 	loop:
-	slt $t3, $t0, $t2
-	beq $t3, $zero, OUT
-	add $t4, $s2, $t0			
-    	lb $t4, 0($t4)     	#$t4=array2[i]    
-    	sub $t3, $t1, $t0	# $t3=size2-1-i       
-    	add $t5, $s2, $t3	
-    	lb $t5, 0($t5)		#$t5=array2[size2-i-1]
-    	add $a0, $t4, $t5 
-    	add $t7, $s3, $t0    	
-    	sb $a0, 0($t7)  	#$t6=array2[i] + array2[size2-i-1]
-    	li $v0, 1
-    	syscall
-    	addi $t0, $t0, 1	#i=i+1
-    	j loop
+		slt $t3, $t0, $t2
+		beq $t3, $zero, OUT
+		add $t4, $s2, $t0			
+    		lb $t4, 0($t4)     	#$t4=array2[i]    
+    		sub $t3, $t1, $t0	# $t3=size2-1-i       
+    		add $t5, $s2, $t3	
+    		lb $t5, 0($t5)		#$t5=array2[size2-i-1]
+    		add $a0, $t4, $t5 
+    		add $t7, $s3, $t0    	
+    		sb $a0, 0($t7)  	#$t6=array2[i] + array2[size2-i-1]
+    		li $v0, 1
+    		syscall
+    		addi $t0, $t0, 1	#i=i+1
+    		j loop
     	OUT:
     	#
     	la $s1, array1

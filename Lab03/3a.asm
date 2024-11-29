@@ -52,9 +52,9 @@ main:
 				j loop1
 		EXIT1:
 		li $v0, 1
-		addi $a0, $s1, 0
+		move $a0, $s1
 		syscall
-		addi $a0, $s2, 0
+		move $a0, $s2
 		syscall
 		addi $t1, $zero, 0 #i=0
 		addi $s1, $zero, 0 #s1=sum=0
@@ -74,11 +74,13 @@ main:
 		li $v0, 1
 		addi $a0, $s1, 0
 		syscall
+		
 		li $v0, 4
 		la $a0, Nhap2
 		syscall
 		li $v0, 5
 		syscall
+		
 		sll $t0, $v0, 2
 		add $t0, $s0, $t0
 		lw $a0, 0($t0)
