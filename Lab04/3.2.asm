@@ -15,17 +15,17 @@ main:
     li $t1, 1
     li $t2, 0  # fib(0)
     li $t3, 1  # fib(1)
-    li $v0, 1  
+   
 
 for_loop:
     slt $t4, $t0, $s0
     beq $t4, $zero, end_loop
     
-    # Print current Fibonacci number
+   
     move $a0, $t2
+    li $v0, 1  
     syscall
     
-    # Calculate next Fibonacci number
     move $t5, $t2
     add $t2, $t2, $t3
     move $t3, $t5

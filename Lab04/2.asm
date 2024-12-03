@@ -6,7 +6,7 @@ main:
 	li $v0, 4
 	syscall
 	
-	li $a0, 20
+	li $a0, 10
 	jal fact
 	
 	move $a0, $v0
@@ -35,6 +35,7 @@ fact:
 	mul $v0, $a0, $v0
 	
 end_fact:
+	
 	lw $ra, 0($sp)
 	addi $sp, $sp, 8
 	jr $ra
